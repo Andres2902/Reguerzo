@@ -16,29 +16,27 @@ def teatro():
     platea_pre = 30000
     platea_norm = 38000
 
-    total = 0
-    aporte = 0
     
-    if Ubicacion_opciones.get() == "Palco":
-        if Tipo_opciones == "Pre-Venta":
+    if Ubicacion_opciones.get() == "Palco": #el .get() para obtener los valores del menú
+        if Tipo_opciones.get() == "Pre-Venta": #el .get() para obtener los valores del menú
             total = cantidad * palco_Pre 
-            aporte = total * 0.75
+            aporte = total * 0.15
 
-        elif Tipo_opciones == "Normal":
+        elif Tipo_opciones.get() == "Normal": #el .get() para obtener los valores del menú
             total = cantidad * palco_norm
-            aporte = total * 0.75
+            aporte = total * 0.15
 
-    elif Ubicacion_opciones.get() == "Platea":
-        if Tipo_opciones == "Pre-Venta":
+    elif Ubicacion_opciones.get() == "Platea": #el .get() para obtener los valores del menú
+        if Tipo_opciones.get() == "Pre-Venta": #el .get() para obtener los valores del menú
             total = cantidad * platea_pre
-            aporte = total * 0.75
+            aporte = total * 0.15
  
-        elif  Tipo_opciones.get() == "Normal":
+        elif  Tipo_opciones.get() == "Normal": #el .get() para obtener los valores del menú
             total = cantidad * platea_norm
-            aporte = total * 0.75
+            aporte = total * 0.15
 
     # Actualizar las etiquetas con los valores calculados
-    venta_lab.config(text=f"Valor venta: {total}")
+    venta_lab.config(text=f"Valor venta: {total}") 
     aporte_lab.config(text=f"Valor aporte: {aporte}")
     
 
@@ -46,7 +44,7 @@ Ubicacion_lab = tk.Label(Ventana, text= "Ubicación: " , font=("Ebrima", 10), bg
 Ubicacion_lab.place(x= 10 , y= 20) #lugar del widget
 
 Ubicacion_opciones = tk.StringVar(Ventana) #guarda la variable que selecciona en el Menú desplegable
-Ubicacion_opciones.set(["Palco"]) #muestra una opcion predeterminada
+Ubicacion_opciones.set("Palco") #muestra una opcion predeterminada
 
 Ubicacion_Menu = tk.OptionMenu(Ventana, Ubicacion_opciones, "Palco", "Platea" ) #genera un meú despegble, "Ubicacion, donde se guarda, opciones "
 Ubicacion_Menu.place(x= 80, y= 20) #Lugar del menú
@@ -57,7 +55,7 @@ tipo_lab = tk.Label(Ventana, text= "Tipo: " , font=("Ebrima", 10), bg="Light Blu
 tipo_lab.place(x= 10 , y= 50) #lugar del widget
 
 Tipo_opciones = tk.StringVar(Ventana) #guarda la variable que selecciona en el Menú desplegable
-Tipo_opciones.set(["Pre-Venta"]) #muestra una opcion predeterminada
+Tipo_opciones.set("Pre-Venta") #muestra una opcion predeterminada
 
 Tipo_Menu = tk.OptionMenu(Ventana, Tipo_opciones, "Pre-Venta", "Normal" ) #genera un menú despegble, "Ubicacion, donde se guarda, opciones "
 Tipo_Menu.place(x= 80, y= 50) #Lugar del menú
